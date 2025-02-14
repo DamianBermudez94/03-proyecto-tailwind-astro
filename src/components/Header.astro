@@ -1,0 +1,41 @@
+---
+// Importamos el archivo de JavaScript para manejar el menú
+---
+
+<header class="flex justify-between">
+    <div class="p-10">
+        <img
+            class="w-6 h-6 rounded-full"
+            src="https://elcomercio.pe/resizer/v2/6Y2EDIISGFGVFANEVDCR5LCG34.jpg?auth=f58b5c647a09717054d85bb8b9a6bc624bfcb14fe9c60b5246730ea6a513e2b0&width=1200&height=810&quality=90&smart=true"
+            alt=""
+        />
+    </div>
+    <div  id="menu-btn" class="md:hidden text-2xl focus:outline-none mt-10 ml-30">
+        ☰
+    </div>
+    <div class="p-10">
+        <nav  id="menu" class="hidden md:flex flex-col md:flex-row gap-4 mt-4 md:mt-0">
+            <li class="list-none"><a href="">Inicio</a></li>
+            <li class="list-none">
+                <a href="">Acerca</a></li>
+            <li class="list-none">
+                <a href="">Proyectos</a>
+            </li>
+            <li class="list-none">
+                <a href="">Contacto</a>
+            </li>
+        </nav>
+    </div>
+</header>
+<!-- Script que se ejecuta solo en el cliente -->
+<script client:load>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+  
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+        menuBtn.textContent = menu.classList.contains("hidden") ? "☰" : "✖";
+      });
+    });
+  </script>
