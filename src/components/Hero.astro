@@ -5,38 +5,57 @@ import emailIcon from "../assets/mail.svg";
 import LottieAnimation from "./LottieAnimation.astro";
 ---
 
-<div id="container">
-	<main class="bg-gray-800">
-		<LottieAnimation />
-		<section id="hero" class="w-full mx-auto lg:w-[740px] py-20 absolute bottom-90 left-0 right-0">
-			
-			<h1
-				class="text-black text-5xl font-bold justify-center flex-row text-center"
-			>
-				Hey, soy Damian Bermudez
-			</h1>
-			<h2 class="m-5">
-				Desarrollador y Diseñador Web con +3 de experiencia. De Lobos -
-				Provincia de Buenos Aires - Argentina. Transformando ideas y
-				Creando soluciones en experiencia digitales.
-			</h2>
-			<div class="flex justify-between m-3">
-				<div class="border rounded-2xl text-[16px] p-2">
-					<a href="https://github.com/tuusuario" target="_blank">
-						<img src={githubIcon.src} class="w-6 h-6 hover:opacity-80" alt="GitHub">
-					</a>
-				</div>
-				<div class="border rounded-2xl text-[16px] p-2">
-					<a href="mailto:tuemail@example.com">
-						<img src={emailIcon.src} class="w-6 h-6 hover:opacity-80" alt="Email">
-					</a>
-				</div>
-				<div class="border rounded-2xl text-[16px] p-2">
-					<a href="https://linkedin.com/in/tuusuario" target="_blank">
-						<img src={linkedinIcon.src} class="w-6 h-6 hover:opacity-80" alt="LinkedIn">
-					</a>
-				</div>
-			</div>
-		</section>
-	</main>
-</div>
+<!--<LottieAnimation />-->
+<section id="hero" class="w-full mx-auto lg:w-[900px] my-24">
+	<h2 class="text-White-Name text-2xl justify-center flex-row">
+		Hey, soy Damian Bermudez
+	</h2>
+	<div class="md:flex gap-20">
+		
+		<h1
+			class="text-5xl text-White-Principal font-bold justify-center flex-row text-left my-5"
+		>
+			Desarrollador & Diseñador Web
+		</h1>
+		<p class="text-White-Name justify-center flex-row text-left my-5 md:text-2xl">
+			+3 de experiencia 
+			<span class="text-Violet-text">
+				transformando ideas y creando soluciones
+				digitales.	
+			</span>
+			Lobos - Provincia de Buenos Aires - Argentina.
+		</p>
+	</div>
+
+	<div class="flex justify-self-start gap-4 my-5">
+		<div
+			class="w-[80px] h-[80px] flex items-center justify-center border rounded-2xl hover:opacity-80 hover:bg-Violet-text transition duration-300 ease-in-out"
+		>
+			<a href="https://github.com/tuusuario" target="_blank">
+				<img
+					src={githubIcon.src}
+					class="w-9 h-9"
+					alt="GitHub"
+				/>
+			</a>
+		</div>
+		<div
+			class="w-[80px] h-[80px] flex items-center justify-center border rounded-2xl  hover:opacity-80 hover:bg-Violet-text transition duration-300 ease-in-out"
+		>
+			<a href="mailto:tuemail@example.com">
+				<img
+					src={emailIcon.src}
+					class="w-9 h-9"
+					alt="Email"
+				/>
+			</a>
+		</div>
+		<div
+			class="w-[80px] h-[80px] flex items-center justify-center border rounded-2xl hover:bg-Violet-background transition duration-300 ease-in-out"
+		>
+			<a href="https://linkedin.com/in/tuusuario" target="_blank">
+				<img src={linkedinIcon.src} class="w-9 h-9" alt="LinkedIn" />
+			</a>
+		</div>
+	</div>
+</section>

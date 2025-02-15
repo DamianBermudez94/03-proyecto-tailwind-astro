@@ -9,13 +9,18 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/tailwind": "^6.0.0",
     "@fontsource-variable/onest": "^5.1.1",
     "@tailwindcss/vite": "^4.0.6",
     "astro": "^5.3.0",
     "astro-icon": "^1.1.5",
+    "autoprefixer": "^10.4.20",
     "lottie-web": "^5.12.2",
     "lucide-react": "^0.475.0",
     "lucide-static": "^0.473.0",
-    "tailwindcss": "^4.0.6"
+    "postcss": "^8.5.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }

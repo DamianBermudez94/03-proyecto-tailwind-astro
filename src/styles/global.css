@@ -1,2 +1,15 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
+
+html {
+    font-family: "Onest Variable";
+}
+
+body {
+    background-color: #101010;
+    padding: 2.5rem;
+    margin: 0;
+    box-sizing: border-box;
+   
+}
