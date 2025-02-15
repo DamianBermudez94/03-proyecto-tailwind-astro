@@ -1,0 +1,31 @@
+---
+import { clientOnly } from 'astro/client';
+---
+
+<div id="lottie-container" class="w-full h-[500px] mx-auto relative"></div>
+
+<script type="module" client:load>
+  // Usamos una CDN para Lottie-web
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.6/lottie.min.js';
+  script.onload = () => {
+    const container = document.getElementById("lottie-container");
+
+    if (container) {
+      console.log("Contenedor encontrado, cargando animación...");
+      lottie.loadAnimation({
+        container: container,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "/animations/hero-4.json" // Ruta del archivo JSON
+      });
+    } else {
+      console.error("Contenedor no encontrado. Verifica que el ID sea correcto.");
+    }
+  };
+
+  document.body.appendChild(script);
+</script>
+
+
