@@ -1,8 +1,8 @@
 ---
 import { clientOnly } from 'astro/client';
 ---
-<!--
-<div id="lottie-container" class="w-full h-[500px] mx-auto relative"></div>
+
+<div id="lottie-container" class="w-full h-full mx-auto relative"></div>
 
 <script type="module" client:load>
   // Usamos una CDN para Lottie-web
@@ -18,7 +18,7 @@ import { clientOnly } from 'astro/client';
         renderer: "svg",
         loop: true,
         autoplay: true,
-        path: "/animations/hero-4.json" // Ruta del archivo JSON
+        path: "/animations/animation-developer.json" // Ruta del archivo JSON
       });
     } else {
       console.error("Contenedor no encontrado. Verifica que el ID sea correcto.");
@@ -27,5 +27,5 @@ import { clientOnly } from 'astro/client';
 
   document.body.appendChild(script);
 </script>
--->
+
 

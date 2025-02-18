@@ -10,10 +10,13 @@ module.exports = {
         "White-Name": "hsl(0deg 0% 95.29% / 59.61%)",
         "White-Principal": "hsl(0deg 0% 87.45%)",
         "Violet-text": "hsl(260.15deg 100% 73.14%)",
+        "Background-body":"#101010",
+        'Violet-background': "rgba(164, 118, 255, 0.3)",
+        "Background-linea":"#ffffff10"
 
       },
       backgroundImage: {
-        'Violet-background': "linear-gradient(135deg, rgba(164, 118, 255, 0.5) 25%, rgba(238, 229, 255, 0.5), rgba(164, 118, 255, 0.5) 75%)"
+        
       }
     },
   },

@@ -1,0 +1,89 @@
+---
+const toggleItem = (event) => {
+  const parent = event.currentTarget.parentElement;
+  const content = parent.querySelector('.items');
+  const arrow = parent.querySelector('.arrow');
+
+  if (content.classList.contains('open')) {
+    content.classList.remove('open');
+    arrow.classList.remove('rotate-180');
+  } else {
+    document.querySelectorAll('.items').forEach((el) => el.classList.remove('open'));
+    document.querySelectorAll('.arrow').forEach((el) => el.classList.remove('rotate-180'));
+
+    content.classList.add('open');
+    arrow.classList.add('rotate-180');
+  }
+};
+---
+
+<style>
+  .category {
+    background-color: rgba(20, 20, 20, 0.6);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .category:hover {
+    background-color: rgba(20, 20, 20, 0.8);
+  }
+  .items {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    padding-left: 10px;
+  }
+  .items.open {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 10px;
+  }
+  .arrow {
+    transition: transform 0.3s;
+  }
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+</style>
+
+<div class="container">
+  <h3>What I do?</h3>
+
+  {["Web Development", "Mobile Development", "UI/UX Design & Prototyping"].map((category) => (
+    <div class="category">
+      <div class="category-header flex justify-between items-center p-3" onClick={toggleItem}>
+        <span>{category}</span>
+        <svg class="arrow w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 13.17l5-5 1.41 1.41-6.41 6.42-6.41-6.42L7 8.17l5 5z"></path>
+        </svg>
+      </div>
+      <ul class="items">
+        {category === "Web Development" && (
+          <>
+            <li>Single Page Applications (SPAs)</li>
+            <li>Landing pages and business websites</li>
+            <li>Portfolio websites</li>
+          </>
+        )}
+        {category === "Mobile Development" && (
+          <>
+            <li>Mobile-friendly web apps</li>
+            <li>React Native mobile apps</li>
+          </>
+        )}
+        {category === "UI/UX Design & Prototyping" && (
+          <>
+            <li>UI design with Figma & Canva</li>
+            <li>UX research & improvements</li>
+            <li>Prototyping for websites & mobile apps</li>
+          </>
+        )}
+      </ul>
+    </div>
+  ))}
+</div>
+

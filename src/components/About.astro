@@ -1,0 +1,14 @@
+---
+import LottieAnimation from "./LottieAnimation.astro";
+import SkillList from "../utils/SkilltList.astro"
+---
+
+<section
+    id:"acerca"
+    class="flex justify-around gap-5 border-t border-Background-linea py-14"
+>
+    <div class="flex justify-around gap-10">
+        <SkillList client:load/>
+        <LottieAnimation />
+    </div>
+</section>
