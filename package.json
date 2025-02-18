@@ -9,16 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.2.0",
     "@astrojs/tailwind": "^6.0.0",
     "@fontsource-variable/onest": "^5.1.1",
     "@tailwindcss/vite": "^4.0.6",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "astro": "^5.3.0",
     "astro-icon": "^1.1.5",
     "autoprefixer": "^10.4.20",
     "lottie-web": "^5.12.2",
     "lucide-react": "^0.475.0",
     "lucide-static": "^0.473.0",
-    "postcss": "^8.5.2"
+    "postcss": "^8.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
