@@ -2,15 +2,19 @@
 const technologies = [
   "astro",
   "react",
-  "typeScript",
   "tailwindcss",
   "nodejs",
   "HTML5",
   "CSS3",
   "javaScript",
   "git",
+  "mongoDB",  
   "mysql",
-  "bash"
+  "github",
+  "wordpress",
+  "postman",
+  "firebase",
+  "figma",
 ];
 ---
 
@@ -20,16 +24,16 @@ const technologies = [
 
   <div class="flex animate-scroll hover:animate-paused gap-12 md:gap-20 w-max">
     {[...technologies, ...technologies, ...technologies].map((tech) => (
-      <div class="flex items-center gap-2 group transition-all duration-300">
+      <div class="flex items-center gap-2 group transition-all duration-500">
         <img
           src={`/svg/${tech}.svg`}
           alt={tech}
           class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
-          width="40"
-          height="40"
+          width="50"
+          height="50"
           loading="lazy"
         />
-        <span class="text-lg font-medium text-white">
+        <span class="text-lg font-medium text-White-Name">
           {tech.charAt(0).toUpperCase() + tech.slice(1)}
         </span>
       </div>
