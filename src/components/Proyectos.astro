@@ -11,32 +11,27 @@ import iconNavigation from "../../public/svg/navigation.svg";
 <section id="proyectos" class="border-t border-Background-linea mt-10">
     <div class="w-full mx-auto lg:w-[900px] my-14">
         <h2 class="text-lg mb-2 text-Violet-background mt-10">Mis trabajos</h2>
-        <h3 class="text-5xl text-White-Principal mb-8">Proyectos</h3>
+        <h3 class="text-5xl text-Color-titulo mb-8">Proyectos</h3>
         <div class="">
-            <div class="grid grid-cols-2 gap-10 pt-10 mt-10">
+            <div class="grid grid-cols-1 gap-10 pt-10 mt-10 md:grid-cols-2">
                 <div>
-                    <a href="">
+                    <div class="flex justify-center cursor-pointer">
+                        <Image
+                            src={ecommerce}
+                            alt="Proyecto Ecommerce"
+                            class="w-full h-48 max-w-md hover:scale-110 transition-all duration-300"
+                        />
+                    </div>
+
+                    <div class="flex justify-center py-3 mt-5">
                         <div>
-                            <Image
-                                src={ecommerce}
-                                alt="Proyecto Ecommerce"
-                                class="w-full h-48 max-w-md hover:scale-110 transition-all duration-300"
-                            />
+                            <h4 class="text-Color-titulo text-2xl font-semibold">
+                                Desarrollador
+                            </h4>
+                            <span class="text-Color-parrafo text-sm py-1"
+                                >E-commerce</span
+                            >
                         </div>
-                    </a>
-                    <div class="flex items-center py-3 mt-5">
-                        <a href="">
-                            <div>
-                                <h4
-                                    class="text-White-Name text-2xl font-semibold"
-                                >
-                                    Desarrollador
-                                </h4>
-                                <span class="text-White-Principal text-sm py-1"
-                                    >E-commerce</span
-                                >
-                            </div>
-                        </a>
 
                         <div class="flex gap-2 ml-auto">
                             <a
@@ -46,7 +41,7 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconCode}
                                     alt=""
-                                    class="w-10 h-10"
+                                    class="w-9 h-9"
                                 />
                             </a>
                             <a
@@ -56,35 +51,31 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconNavigation}
                                     alt=""
-                                    class="w-10 h-10 text-Violet-background"
+                                    class="w-9 h-9"
                                 />
                             </a>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <a href="">
-                        <div>
+                  
+                        <div class="flex justify-center cursor-pointer">
                             <Image
                                 src={redsocial}
                                 alt="Proyecto Red social"
                                 class="shadow-md hover:scale-110 transition-all duration-300 w-full h-48 max-w-md"
                             />
                         </div>
-                    </a>
+                  
                     <div class="flex items-center py-3 mt-5">
-                        <a href="">
-                            <div>
-                                <h4
-                                    class="text-White-Name text-2xl font-semibold"
-                                >
-                                    Desarrollador
-                                </h4>
-                                <span class="text-White-Principal text-sm py-1"
-                                    >Red Social</span
-                                >
-                            </div>
-                        </a>
+                        <div>
+                            <h4 class="text-Color-titulo text-2xl font-semibold">
+                                Desarrollador
+                            </h4>
+                            <span class="text-Color-parrafo text-sm py-1">
+                                Red Social
+                            </span>
+                        </div>
 
                         <div class="flex gap-2 ml-auto">
                             <a
@@ -94,7 +85,7 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconCode}
                                     alt=""
-                                    class="w-10 h-10 text-Violet-background"
+                                    class="w-9 h-9"
                                 />
                             </a>
                             <a
@@ -104,35 +95,31 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconNavigation}
                                     alt=""
-                                    class="w-10 h-10 text-Violet-background"
+                                    class="w-9 h-9"
                                 />
                             </a>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <a href="">
-                        <div>
+                    
+                        <div class="flex justify-center cursor-pointer">
                             <Image
                                 src={perfilplac}
                                 alt="Proyecto Landing page"
                                 class="shadow-md hover:scale-110 transition-all duration-300 w-full h-48 max-w-md"
                             />
                         </div>
-                    </a>
+                  
                     <div class="flex items-center py-3 mt-5">
-                        <a href="">
-                            <div>
-                                <h4
-                                    class="text-White-Name text-2xl font-semibold"
-                                >
-                                    Diseñador
-                                </h4>
-                                <span class="text-White-Principal text-sm py-1"
-                                    >Landing Page</span
-                                >
-                            </div>
-                        </a>
+                        <div>
+                            <h4 class="text-Color-titulo text-2xl font-semibold">
+                                Diseñador
+                            </h4>
+                            <span class="text-Color-parrafo text-sm py-1"
+                                >Landing Page</span
+                            >
+                        </div>
 
                         <div class="flex gap-2 ml-auto">
                             <a
@@ -142,7 +129,7 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconCode}
                                     alt=""
-                                    class="w-10 h-10 text-Violet-background"
+                                    class="w-9 h-9"
                                 />
                             </a>
                             <a
@@ -152,35 +139,31 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconNavigation}
                                     alt=""
-                                    class="w-10 h-10 text-Violet-background"
+                                    class="w-9 h-9"
                                 />
                             </a>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <a href="">
-                        <div>
+                   
+                        <div class="flex justify-center cursor-pointer">
                             <Image
                                 src={mercedesmichelini}
                                 alt="Proyecto Negocios Inmobiliaria"
                                 class="shadow-md hover:scale-110 transition-all duration-300 w-full h-48 max-w-md"
                             />
                         </div>
-                    </a>
+                   
                     <div class="flex items-center py-3 mt-5">
-                        <a href="" >
-                            <div>
-                                <h4
-                                    class="text-White-Name text-2xl font-semibold"
-                                >
-                                    Diseñador
-                                </h4>
-                                <span class="text-White-Principal text-sm py-1"
-                                    >Sitio Web</span
-                                >
-                            </div>
-                        </a>
+                        <div>
+                            <h4 class="text-Color-titulo text-2xl font-semibold">
+                                Diseñador
+                            </h4>
+                            <span class="text-Color-parrafo text-sm py-1">
+                                Sitio Web
+                            </span>
+                        </div>
 
                         <div class="flex gap-2 ml-auto">
                             <a
@@ -190,7 +173,7 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconCode}
                                     alt=""
-                                    class="w-10 h-10 text-Violet-background"
+                                    class="w-9 h-9"
                                 />
                             </a>
                             <a
@@ -200,7 +183,7 @@ import iconNavigation from "../../public/svg/navigation.svg";
                                 <Image
                                     src={iconNavigation}
                                     alt=""
-                                    class="w-10 h-10"
+                                    class="w-9 h-9"
                                 />
                             </a>
                         </div>
@@ -208,8 +191,10 @@ import iconNavigation from "../../public/svg/navigation.svg";
                 </div>
             </div>
         </div>
-        <a href=""
-        class="text-xl text-White-Principal flex justify-center gap-3 mt-8 border border-Violet-background p-6 rounded-full hover:bg-Background-icon transition-all"    >Más proyectos en <span
+        <a
+            href=""
+            class="text-xl text-Color-parrafo flex justify-center gap-3 mt-8 border border-Violet-background p-2 rounded-full hover:bg-Background-icon transition-all"
+            >Más proyectos en <span
                 ><svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

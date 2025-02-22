@@ -26,7 +26,7 @@ const SkillsList = () => {
   return (
     <div className="container">
       <h2 class="text-lg mb-2 text-Violet-background mt-10">Un poco sobre mi</h2>
-      <h3 className="text-4xl text-White-Principal font-semibold mb-10">¿Que hago?</h3>
+      <h3 className="text-4xl text-Color-titulo font-semibold mb-10">¿Que hago?</h3>
 
       {Object.entries(skills).map(([category, items]) => (
         <div key={category} className="category p-4 mb-2 bg-Background-body border border-Violet-background rounded-lg cursor-pointer">
@@ -34,7 +34,7 @@ const SkillsList = () => {
             className="flex justify-between items-center p-2"
             onClick={() => toggleItem(category)}
           >
-            <span className="text-lg text-White-Name">{category}</span>
+            <span className="text-lg text-Color-titulo">{category}</span>
             <svg
               className={`arrow w-7 h-7 transform transition-transform text-Violet-background ${openCategory === category ? "rotate-180" : ""
                 }`}
@@ -50,7 +50,7 @@ const SkillsList = () => {
               }`}
           >
             {items.map((item, index) => (
-              <li key={index} className="pl-4 text-White-Name text-sm">
+              <li key={index} className="pl-4 text-Color-parrafo text-sm">
                 • {item}
               </li>
             ))}
