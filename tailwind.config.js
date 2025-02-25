@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "Color-parrafo": "#F3F3F398",
-        "Color-titulo": "#DFDFDF",
+        "Color-parrafo": "#f3f3f398",
+        "Color-titulo": "#f3f3f3",
         "Violet-text": "hsl(260.15deg 100% 73.14%)",
         "color-input":"#a476ff",
         "Background-body":"#101010",
