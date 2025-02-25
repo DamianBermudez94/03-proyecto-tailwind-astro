@@ -1,35 +1,9 @@
----
-import { onMount } from "solid-js";
-import emailjs from "@emailjs/browser";
-
-// Función para enviar email
-const sendEmail = async (event) => {
-  event.preventDefault();
-  console.log("Formulario enviado");
-
-  try {
-    const result = await emailjs.sendForm(
-      import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
-      import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
-      event.target,
-      import.meta.env.PUBLIC_EMAILJS_USER_ID
-    );
-
-    console.log("Resultado de envío:", result);
-    alert("Correo enviado con éxito ✅");
-    event.target.reset();
-  } catch (error) {
-    console.log("Error al enviar el correo:", error);
-    alert("❌ Error al enviar el correo: " + error.text);
-  }
-};
- 
----
-
-<section id="contacto"  class="w-full border-t border-Background-linea py-12">
+<section id="contacto" class="w-full border-t border-Background-linea py-12">
   <div class="max-w-5xl mx-auto">
     <h2 class="text-lg mb-2 text-Violet-text">Hablemos</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-Color-titulo mb-6">Contacto</h3>
+    <h3 class="text-4xl md:text-5xl font-medium text-Color-titulo mb-6">
+      Contacto
+    </h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <p class="mb-4 text-Color-parrafo">
         ¿Tienes alguna pregunta o un proyecto en mente? No dudes en consultarme.
@@ -37,18 +11,39 @@ const sendEmail = async (event) => {
 
       <div>
         <!-- El formulario ahora tiene onsubmit directamente -->
-        <form id="contact-form" class="flex flex-col gap-4 py-4" onsubmit={sendEmail}>
-          <input type="text" name="nombre" placeholder="Nombre..." class="px-4 py-2 bg-Background-input text-White-Principal border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input" required />
-          <input type="email" name="email" placeholder="Correo electrónico..." class="px-4 py-2 bg-Background-input text-White-Principal border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input" required />
-          <textarea name="mensaje" id="mensaje" placeholder="Escribe tu mensaje..." class="px-4 py-2 bg-Background-input max-w-full max-h-96 text-White-Principal border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input" required></textarea>
-          <button type="submit" class="text-xl text-Color-parrafo flex justify-center gap-3 mt-8 border border-Violet-background p-2 rounded-lg hover:bg-Background-icon transition-all">Enviar</button>
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xrgnnogr"
+          class="flex flex-col gap-4"
+          method="POST"
+        >
+          <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre..."
+            class="px-4 py-2 bg-Background-input text-Color-titulo border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Correo electrónico..."
+            class="px-4 py-2 bg-Background-input text-Color-titulo border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input"
+            required
+          />
+          <textarea
+            name="mensaje"
+            id="mensaje"
+            placeholder="Escribe tu mensaje..."
+            class="px-4 py-2 bg-Background-input max-w-full max-h-96 text-Color-titulo border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input"
+            required></textarea>
+          <button
+            type="submit"
+            class="text-xl text-Color-parrafo flex justify-center gap-3 mt-8 border border-Violet-background p-2 rounded-lg hover:bg-Background-icon transition-all"
+            >Enviar</button
+          >
         </form>
       </div>
     </div>
   </div>
 </section>
-
-
-
-
-
