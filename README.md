@@ -2,10 +2,10 @@
 
 Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades en desarrollo web. 🚀  
 
-🔗 **[Visita mi portafolio en vivo](https://tudominio.com/)**  
+🔗 **[Visita mi portafolio en vivo](https://damianbermudezdev.es/)**  
 
 ## 📸 Captura de pantalla  
-![Vista previa del portafolio](ruta-de-la-imagen.png)  
+![Vista previa del portafolio](assets/captura-porfolio.png)  
 
 ## 🚀 Tecnologías utilizadas  
 - ⚡ [Astro](https://astro.build/)  
