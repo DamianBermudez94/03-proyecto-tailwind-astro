@@ -27,6 +27,7 @@ git clone https://github.com/tuusuario/mi-portafolio.git
 cd mi-portafolio
 npm install
 npm run dev
+```
 
 📬 Contacto
 📧 Email: tuemail@example.com
