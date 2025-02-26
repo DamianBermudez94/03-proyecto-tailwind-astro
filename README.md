@@ -10,8 +10,8 @@ Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades en des
 ## 🚀 Tecnologías utilizadas  
 - ⚡ [Astro](https://astro.build/)  
 - 🎨 Tailwind CSS  
-- 🔧 Netlify / Vercel (para el despliegue)  
-- 🛠️ Otras herramientas: (Ejemplo: Figma, GSAP para animaciones, etc.)  
+- 🔧 Vercel (para el despliegue)  
+- 🛠️ Otras herramientas: Hostinger como proveedor del hosting  
 
 ## ✨ Características  
 ✔️ Diseño responsivo y moderno 📱  
@@ -29,10 +29,10 @@ npm install
 npm run dev
 ```
 
-📬 Contacto
-📧 Email: tuemail@example.com
-🔗 LinkedIn: linkedin.com/in/tuusuario
-🐙 GitHub: github.com/tuusuario
+## 📬 Contacto
+
+📧 Email: bermudezdamian7@gmail.com
+🔗 LinkedIn: https://www.linkedin.com/in/damianbermudezdeveloper/
 
 📜 Licencia
 Este proyecto está bajo la licencia MIT. ¡Siéntete libre de usarlo y modificarlo!
