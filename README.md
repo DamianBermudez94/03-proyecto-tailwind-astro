@@ -10,7 +10,7 @@ Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades en des
 ## 🚀 Tecnologías utilizadas  
 - ⚡ [Astro](https://astro.build/)  
 - 🎨 Tailwind CSS  
-- 🔧 Netlify / Vercel (para el despliegue)  
+- 🔧 Vercel (para el despliegue)  
 - 🛠️ Otras herramientas: Hostinger como proveedor del hosting y del dominio  
 
 ## ✨ Características  
