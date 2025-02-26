@@ -29,10 +29,10 @@ npm install
 npm run dev
 ```
 
-📬 Contacto
-📧 Email: tuemail@example.com
-🔗 LinkedIn: linkedin.com/in/tuusuario
-🐙 GitHub: github.com/tuusuario
+##📬 Contacto
+
+📧 Email: bermudezdamian7@gmail.com
+🔗 LinkedIn: https://www.linkedin.com/in/damianbermudezdeveloper/
 
 📜 Licencia
 Este proyecto está bajo la licencia MIT. ¡Siéntete libre de usarlo y modificarlo!
