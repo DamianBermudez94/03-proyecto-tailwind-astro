@@ -1,32 +1,41 @@
 ---
-
+import { Image } from "astro:assets";
+import Logo from "../assets/Logo-DB.png";
 ---
 
 <header
     class="w-full left-1/2 transform -translate-x-1/2 max-w-screen-xl fixed top-0 z-50 bg-Background-body"
 >
     <div class="flex justify-between m-auto gap-10 h-30 py-6">
-        <div class="m-auto ml-10">
-            <a href="#inicio" class="text-3xl text-Violet-text">DB|WEB</a>
+        <div class="">
+            <a href="#inicio">
+                <Image
+                    class="w-[250px] h-[100px] object-cover"
+                    src={Logo}
+                    alt=""
+                />
+            </a>
         </div>
-      
-            <button
-                id="menuButton"
-                class="relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-500 bg-gray-900"
+
+        <button
+            id="menuButton"
+            class="relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-500 p-10 md:hidden"
+        >
+            <div
+                id="menuIcon"
+                class="relative w-8 h-8 flex flex-col justify-between items-center"
             >
-                <div id="menuIcon" class="relative w-8 h-8">
-                    <span
-                        class="absolute left-0 top-1/2 w-8 h-1 bg-white transition-all duration-500 transform -translate-y-1/2 origin-center"
-                    ></span>
-                    <span
-                        class="absolute left-0 top-1/2 w-8 h-1 bg-white transition-all duration-500 transform -translate-y-1/2 origin-center"
-                    ></span>
-                    <span
-                        class="absolute left-0 top-1/2 w-8 h-1 bg-white transition-all duration-500 transform -translate-y-1/2 origin-center"
-                    ></span>
-                </div>
-            </button>
-       
+                <span
+                    class="w-8 h-1 bg-white transition-all duration-500 origin-center"
+                ></span>
+                <span
+                    class="w-8 h-1 bg-white transition-all duration-500 origin-center"
+                ></span>
+                <span
+                    class="w-8 h-1 bg-white transition-all duration-500 origin-center"
+                ></span>
+            </div>
+        </button>
 
         <nav
             id="menu"
@@ -60,75 +69,57 @@
 <script client:load>
     document.addEventListener("DOMContentLoaded", () => {
         const sections = document.querySelectorAll("section");
-        console.log("Soy las seccciones", sections);
-
         const links = document.querySelectorAll("a[href^='#']");
-
         const menuButton = document.getElementById("menuButton");
-        console.log(menuButton);
-
         const menuIcon = document.getElementById("menuIcon");
         const menu = document.getElementById("menu");
         const bars = menuIcon.querySelectorAll("span");
 
-        menuButton.addEventListener("click", () => {
-            const isOpen = menu.classList.toggle("hidden"); // Alterna visibilidad del menú
-            if (!isOpen) {
-                // Animación de apertura (Efecto X centrado)
-                menuButton.classList.add(
-                    "scale-110",
-                    "bg-red-500",
-                    "rotate-180",
-                );
+        // Función para alternar el menú (abrir/cerrar)
+        function toggleMenu() {
+            const isOpen = menu.classList.toggle("hidden"); // Alterna la visibilidad
 
-                bars[0].classList.add("rotate-45", "translate-y-2");
-                bars[1].classList.add("opacity-0");
-                bars[2].classList.add("-rotate-45", "-translate-y-2");
-            } else {
-                // Animación de cierre (Vuelve a hamburguesa)
-                menuButton.classList.remove(
-                    "scale-110",
-                    "bg-red-500",
-                    "rotate-180",
-                );
+            bars[0].classList.toggle("rotate-45", !isOpen);
+            bars[0].classList.toggle("translate-y-4", !isOpen);
+            bars[1].classList.toggle("opacity-0", !isOpen);
+            bars[2].classList.toggle("-rotate-45", !isOpen);
+            bars[2].classList.toggle("-translate-y-3", !isOpen);
+        }
 
-                bars[0].classList.remove("rotate-45", "translate-y-2");
-                bars[1].classList.remove("opacity-0");
-                bars[2].classList.remove("-rotate-45", "-translate-y-2");
-            }
-        });
+        // Evento de clic en el botón del menú
+        menuButton.addEventListener("click", toggleMenu);
+
+        // Evento de clic en los enlaces del menú
         links.forEach((link) => {
-            link.addEventListener("click", function (e) {
+            link.addEventListener("click", (e) => {
                 e.preventDefault();
 
-                const targetId = this.getAttribute("href").substring(1);
+                const targetId = link.getAttribute("href").substring(1);
                 const targetElement = document.getElementById(targetId);
 
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: "smooth" });
                 }
+
+                // Cerrar el menú después de hacer clic en un enlace
+                if (!menu.classList.contains("hidden")) {
+                    toggleMenu();
+                }
             });
         });
 
+        // Resaltar enlaces de navegación al hacer scroll
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const activeSection = entry.target.getAttribute("id");
-                        console.log(
-                            "soy las secciones activadas",
-                            activeSection,
-                        );
-                        console.log("soy los links asd", links);
+                        const activeSection = entry.target.id;
+
                         links.forEach((link) => {
-                            link.classList.toggle(
-                                "text-Violet-text",
-                                link.dataset.section === activeSection,
-                            );
-                            link.classList.toggle(
-                                "font-bold",
-                                link.dataset.section === activeSection,
-                            );
+                            const isActive =
+                                link.dataset.section === activeSection;
+                            link.classList.toggle("text-Violet-text", isActive);
+                            link.classList.toggle("font-bold", isActive);
                         });
                     }
                 });
