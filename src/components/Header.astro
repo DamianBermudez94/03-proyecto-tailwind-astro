@@ -2,64 +2,101 @@
 
 ---
 
-<header class="w-full left-1/2 transform -translate-x-1/2 max-w-screen-xl fixed top-0 z-50 bg-Background-body">
+<header
+    class="w-full left-1/2 transform -translate-x-1/2 max-w-screen-xl fixed top-0 z-50 bg-Background-body"
+>
     <div class="flex justify-between m-auto gap-10 h-30 py-6">
         <div class="m-auto ml-10">
             <a href="#inicio" class="text-3xl text-Violet-text">DB|WEB</a>
-          
         </div>
-        <div
-            id="menu-btn"
-            class="md:hidden text-4xl focus:outline-none m-auto mr-9 cursor-pointer text-white"
-        >
-            ☰
-        </div>
-    
+      
+            <button
+                id="menuButton"
+                class="relative w-12 h-12 flex items-center justify-center rounded-full transition-all duration-500 bg-gray-900"
+            >
+                <div id="menuIcon" class="relative w-8 h-8">
+                    <span
+                        class="absolute left-0 top-1/2 w-8 h-1 bg-white transition-all duration-500 transform -translate-y-1/2 origin-center"
+                    ></span>
+                    <span
+                        class="absolute left-0 top-1/2 w-8 h-1 bg-white transition-all duration-500 transform -translate-y-1/2 origin-center"
+                    ></span>
+                    <span
+                        class="absolute left-0 top-1/2 w-8 h-1 bg-white transition-all duration-500 transform -translate-y-1/2 origin-center"
+                    ></span>
+                </div>
+            </button>
+       
+
         <nav
             id="menu"
-            class="text-white hidden w-full h-screen md:h-auto absolute top-40 left-1/2 transform -translate-x-1/2 bg-Background-body md:flex  md: md:my-auto md:static md:w-auto md:bg-transparent md:translate-x-0 z-10 border-white"
+            class="text-white hidden w-full h-screen md:h-auto absolute top-32 left-1/2 transform -translate-x-1/2 bg-Background-body md:flex md: md:my-auto md:static md:w-auto md:bg-transparent md:translate-x-0 z-10 border-white"
         >
             <li
                 class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
             >
-                <a href="#inicio">Inicio</a>
+                <a href="#inicio" data-section="inicio">Inicio</a>
             </li>
             <li
                 class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
             >
-                <a href="#acerca">Acerca</a>
+                <a href="#acerca" data-section="acerca">Acerca</a>
             </li>
             <li
                 class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
             >
-                <a href="#proyectos">Proyectos</a>
+                <a href="#proyectos" data-section="proyectos">Proyectos</a>
             </li>
             <li
                 class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
             >
-                <a href="#contacto">Contacto</a>
+                <a href="#contacto" data-section="contacto">Contacto</a>
             </li>
         </nav>
     </div>
- 
 </header>
 
 <!-- Script que se ejecuta solo en el cliente -->
 <script client:load>
     document.addEventListener("DOMContentLoaded", () => {
-        const menuBtn = document.getElementById("menu-btn");
-        const menu = document.getElementById("menu");
+        const sections = document.querySelectorAll("section");
+        console.log("Soy las seccciones", sections);
 
-        menuBtn.addEventListener("click", () => {
-            menu.classList.toggle("hidden");
-            menuBtn.textContent = menu.classList.contains("hidden")
-                ? "☰"
-                : "✖";
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
         const links = document.querySelectorAll("a[href^='#']");
-        console.log("Soy los links",links)
+
+        const menuButton = document.getElementById("menuButton");
+        console.log(menuButton);
+
+        const menuIcon = document.getElementById("menuIcon");
+        const menu = document.getElementById("menu");
+        const bars = menuIcon.querySelectorAll("span");
+
+        menuButton.addEventListener("click", () => {
+            const isOpen = menu.classList.toggle("hidden"); // Alterna visibilidad del menú
+            if (!isOpen) {
+                // Animación de apertura (Efecto X centrado)
+                menuButton.classList.add(
+                    "scale-110",
+                    "bg-red-500",
+                    "rotate-180",
+                );
+
+                bars[0].classList.add("rotate-45", "translate-y-2");
+                bars[1].classList.add("opacity-0");
+                bars[2].classList.add("-rotate-45", "-translate-y-2");
+            } else {
+                // Animación de cierre (Vuelve a hamburguesa)
+                menuButton.classList.remove(
+                    "scale-110",
+                    "bg-red-500",
+                    "rotate-180",
+                );
+
+                bars[0].classList.remove("rotate-45", "translate-y-2");
+                bars[1].classList.remove("opacity-0");
+                bars[2].classList.remove("-rotate-45", "-translate-y-2");
+            }
+        });
         links.forEach((link) => {
             link.addEventListener("click", function (e) {
                 e.preventDefault();
@@ -72,5 +109,33 @@
                 }
             });
         });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const activeSection = entry.target.getAttribute("id");
+                        console.log(
+                            "soy las secciones activadas",
+                            activeSection,
+                        );
+                        console.log("soy los links asd", links);
+                        links.forEach((link) => {
+                            link.classList.toggle(
+                                "text-Violet-text",
+                                link.dataset.section === activeSection,
+                            );
+                            link.classList.toggle(
+                                "font-bold",
+                                link.dataset.section === activeSection,
+                            );
+                        });
+                    }
+                });
+            },
+            { threshold: 0.9 },
+        );
+
+        sections.forEach((section) => observer.observe(section));
     });
 </script>

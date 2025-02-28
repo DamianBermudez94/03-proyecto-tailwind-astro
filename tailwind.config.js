@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         "Color-parrafo": "#f3f3f398",
         "Color-titulo": "#f3f3f3",
-        "Violet-text": "hsl(260.15deg 100% 73.14%)",
+        "Violet-text": "#a476ff",
         "color-input":"#a476ff",
         "Background-body":"#101010",
         'Violet-background': "rgba(164, 118, 255, 0.3)",

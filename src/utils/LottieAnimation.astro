@@ -1,8 +1,9 @@
 ---
-import { clientOnly } from 'astro/client';
 ---
 
-<div id="lottie-container" class="w-full h-full"></div>
+<div id="lottie-container" class="w-[300px] h-[350px] md:w-[800px] m-auto relative">
+  <div class="pointer-events-none absolute inset-0  bg-gradient-to-tr from-Background-body to-transparent z-20"></div>
+</div>
 
 <script type="module" client:load>
   // Usamos una CDN para Lottie-web
