@@ -3,7 +3,7 @@ import LogoWall from "../utils/Carrusel.astro";
 ---
 
 <!--<LottieAnimation />-->
-<section id="inicio" class="w-full mx-auto lg:w-[1000px] pt-40">
+<section id="inicio" class="w-full mx-auto lg:w-[1000px] pt-20 md:pt-40">
 	<h2 class="text-Color-parrafo text-2xl justify-center flex-row">
 		¡Hola!, soy Damián Bermúdez
 	</h2>
@@ -24,9 +24,9 @@ import LogoWall from "../utils/Carrusel.astro";
 		</p>
 	</div>
 
-	<div class="flex justify-self-start gap-4 my-5">
+	<div class="flex flex-wrap justify-self-start gap-4 my-5">
 		<div
-			class="w-[70px] h-[70px] flex items-center justify-center border border-Violet-background rounded-xl hover:opacity-80 hover:bg-Background-icon transition duration-300 ease-in-out"
+			class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center border border-Violet-background rounded-xl hover:opacity-80 hover:bg-Background-icon transition duration-300 ease-in-out"
 		>
 			<a
 				href="https://github.com/DamianBermudez94"
@@ -51,7 +51,7 @@ import LogoWall from "../utils/Carrusel.astro";
 			</a>
 		</div>
 		<div
-			class="w-[70px] h-[70px] flex items-center justify-center border border-Violet-background rounded-xl hover:opacity-80 hover:bg-Background-icon transition duration-300 ease-in-out"
+			class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center border border-Violet-background rounded-xl hover:opacity-80 hover:bg-Background-icon transition duration-300 ease-in-out"
 		>
 			<a
 				href="mailto:bermudezdamian7@gmail.com"
@@ -76,7 +76,7 @@ import LogoWall from "../utils/Carrusel.astro";
 			</a>
 		</div>
 		<div
-			class="w-[70px] h-[70px] flex items-center justify-center border border-Violet-background rounded-xl hover:text-White-Principal hover:bg-Background-icon transition duration-300 ease-in-out"
+			class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center border border-Violet-background rounded-xl hover:text-White-Principal hover:bg-Background-icon transition duration-300 ease-in-out"
 		>
 			<a
 				href="https://www.linkedin.com/in/damianbermudezdeveloper/"
@@ -102,17 +102,19 @@ import LogoWall from "../utils/Carrusel.astro";
 			</a>
 		</div>
 		<div
-			class="w-[70px] h-[70px] flex items-center justify-center border border-Violet-background rounded-xl hover:text-White-Principal hover:bg-Background-icon transition duration-300 ease-in-out"
+			class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center border border-Violet-background rounded-xl hover:text-White-Principal hover:bg-Background-icon transition duration-300 ease-in-out"
 		>
-		<a href="/src/assets/CVDamianBermudez.pdf"
-		target="_blank"
-		download="CVDamianBermudez.pdf"
-		class="relative flex items-center gap-2 px-4 py-2 text-Color-icon transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
-	 >
-		<span class="transition-transform duration-300 group-hover:translate-y-1">CV</span>
-		
-	 </a>
-	 
+			<a
+				href="/src/assets/CVDamianBermudez.pdf"
+				target="_blank"
+				download="CVDamianBermudez.pdf"
+				class="relative flex items-center gap-2 px-4 py-2 text-Color-icon transition-all duration-300 hover:text-white hover:scale-105 active:scale-95"
+			>
+				<span
+					class="transition-transform duration-300 group-hover:translate-y-1"
+					>CV</span
+				>
+			</a>
 		</div>
 	</div>
 	<LogoWall />
