@@ -11,8 +11,8 @@ const SkillsList = () => {
     ],
     "Diseñador Web": [
       "Web corporativas",
-      "Porfolios",
-      "Lading Page",
+      "Portfolios",
+      "Landing Page",
       "Sitios Web",
       "Ecommerce",
       "Tiendas Online"

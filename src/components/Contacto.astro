@@ -1,16 +1,15 @@
-<section id="contacto" class="w-full border-t border-Background-linea py-12">
+<section id="contacto" class="w-full py-12 border-t border-Background-linea">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg mb-2 text-Violet-text">Hablemos</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-Color-titulo mb-6">
+    <h2 class="mb-2 text-lg text-Violet-text">Hablemos</h2>
+    <h3 class="mb-6 text-4xl font-medium md:text-5xl text-Color-titulo">
       Contacto
     </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
       <p class="mb-4 text-Color-parrafo">
         ¿Tienes alguna pregunta o un proyecto en mente? No dudes en consultarme.
       </p>
 
       <div>
-        <!-- El formulario ahora tiene onsubmit directamente -->
         <form
           id="contact-form"
           action="https://formspree.io/f/mvgkgkzz"
@@ -21,29 +20,79 @@
             type="text"
             name="nombre"
             placeholder="Nombre..."
-            class="px-4 py-2 bg-Background-input text-Color-titulo border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input"
+            class="px-4 py-2 border rounded-lg bg-Background-input text-Color-titulo border-Background-linea focus:outline-none focus:ring-2 focus:ring-color-input"
             required
           />
           <input
             type="email"
             name="email"
             placeholder="Correo electrónico..."
-            class="px-4 py-2 bg-Background-input text-Color-titulo border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input"
+            class="px-4 py-2 border rounded-lg bg-Background-input text-Color-titulo border-Background-linea focus:outline-none focus:ring-2 focus:ring-color-input"
             required
           />
           <textarea
             name="mensaje"
             id="mensaje"
             placeholder="Escribe tu mensaje..."
-            class="px-4 py-2 bg-Background-input max-w-full max-h-96 text-Color-titulo border border-Background-linea rounded-lg focus:outline-none focus:ring-2 focus:ring-color-input"
+            class="max-w-full px-4 py-2 border rounded-lg bg-Background-input max-h-96 text-Color-titulo border-Background-linea focus:outline-none focus:ring-2 focus:ring-color-input"
             required></textarea>
           <button
             type="submit"
-            class="text-xl text-Color-parrafo flex justify-center gap-3 mt-8 border border-Violet-background p-2 rounded-lg hover:bg-Background-icon transition-all"
+            class="flex justify-center gap-3 p-2 mt-8 text-xl transition-all border rounded-lg text-Color-parrafo border-Violet-background hover:bg-Background-icon"
             >Enviar</button
           >
+          <p
+            id="form-status"
+            class="mt-2 text-sm text-center"
+            role="status"
+            aria-live="polite"
+          >
+          </p>
         </form>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+  const status = document.getElementById("form-status");
+
+  if (form && status) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const button = form.querySelector(
+        "button[type='submit']",
+      ) as HTMLButtonElement;
+      const originalText = button.textContent;
+      button.disabled = true;
+      button.textContent = "Enviando...";
+      status.textContent = "";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          status.className = "text-sm text-center mt-2 text-green-400";
+          status.textContent = "¡Mensaje enviado! Te responderé a la brevedad.";
+          form.reset();
+        } else {
+          throw new Error("Error en el envío");
+        }
+      } catch (error) {
+        status.className = "text-sm text-center mt-2 text-red-400";
+        status.textContent =
+          "Hubo un error. Escribime a bermudezdamian7@gmail.com";
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    });
+  }
+</script>
