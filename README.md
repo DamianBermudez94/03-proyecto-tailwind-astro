@@ -2,7 +2,7 @@
 
 Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades en desarrollo web. 🚀  
 
-🔗 **[Visita mi portafolio](https://damianbermudezdev.es/)**  
+🔗 **[Visita mi portafolio](https://damianbermudezdev.net/)**  
 
 ## 📸 Captura de pantalla  
 
