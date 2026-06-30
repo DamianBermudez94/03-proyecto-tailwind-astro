@@ -1,18 +1,118 @@
+---
+// ⬇️ REEMPLAZÁ estos valores por los tuyos:
+const WHATSAPP = "https://wa.me/542227508824"; // tu número real (formato 54 9 + área sin 0 + número sin 15)
+const EMAIL = "bermudezdamian7@gmail.com"; // tu email
+const AGENDA = "#contacto"; // tu link de agenda cuando lo tengas (Cal.com / Google Calendar)
+const FORMSPREE = "https://formspree.io/f/mvgkgkzz"; // ⚠️ verificá que sea TU formulario de Formspree
+---
+
 <section id="contacto" class="w-full py-12 border-t border-Background-linea">
-  <div class="max-w-5xl mx-auto">
+  <div class="w-full mx-auto lg:w-[1000px]">
     <h2 class="mb-2 text-lg text-Violet-text">Hablemos</h2>
-    <h3 class="mb-6 text-4xl font-medium md:text-5xl text-Color-titulo">
+    <h3 class="mb-4 text-4xl font-medium md:text-5xl text-Color-titulo">
       Contacto
     </h3>
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
-      <p class="mb-4 text-Color-parrafo">
-        ¿Tienes alguna pregunta o un proyecto en mente? No dudes en consultarme.
-      </p>
+    <p class="max-w-2xl mb-12 text-lg text-Color-parrafo">
+      ¿Tenés un negocio que querés hacer crecer o automatizar? Escribime y vemos
+      juntos qué se puede hacer. Sin compromiso.
+    </p>
 
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <!-- Columna izquierda: contacto directo -->
+      <div class="flex flex-col gap-4">
+        <a
+          href={WHATSAPP}
+          target="_blank"
+          class="flex items-center gap-4 p-4 transition-all duration-300 border rounded-xl border-Violet-background hover:bg-Background-icon"
+        >
+          <span
+            class="flex items-center justify-center rounded-lg shrink-0 w-11 h-11 bg-Background-icon text-Violet-text"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="block font-medium text-Color-titulo">WhatsApp</span>
+            <span class="block text-sm text-Color-parrafo"
+              >La forma más rápida de contactarme</span
+            >
+          </span>
+        </a>
+
+        <a
+          href={`mailto:${EMAIL}`}
+          class="flex items-center gap-4 p-4 transition-all duration-300 border rounded-xl border-Violet-background hover:bg-Background-icon"
+        >
+          <span
+            class="flex items-center justify-center rounded-lg shrink-0 w-11 h-11 bg-Background-icon text-Violet-text"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </span>
+          <span>
+            <span class="block font-medium text-Color-titulo">Email</span>
+            <span class="block text-sm text-Color-parrafo">{EMAIL}</span>
+          </span>
+        </a>
+
+        <div
+          class="flex items-center gap-4 p-4 border rounded-xl border-Violet-background"
+        >
+          <span
+            class="flex items-center justify-center rounded-lg shrink-0 w-11 h-11 bg-Background-icon text-Violet-text"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </span>
+          <span>
+            <span class="block font-medium text-Color-titulo">Ubicación</span>
+            <span class="block text-sm text-Color-parrafo"
+              >Lobos, Buenos Aires · Trabajo con toda la zona</span
+            >
+          </span>
+        </div>
+      </div>
+
+      <!-- Columna derecha: formulario -->
       <div>
         <form
           id="contact-form"
-          action="https://formspree.io/f/mvgkgkzz"
+          action={FORMSPREE}
           class="flex flex-col gap-4"
           method="POST"
         >
@@ -33,13 +133,25 @@
           <textarea
             name="mensaje"
             id="mensaje"
-            placeholder="Escribe tu mensaje..."
-            class="max-w-full px-4 py-2 border rounded-lg bg-Background-input max-h-96 text-Color-titulo border-Background-linea focus:outline-none focus:ring-2 focus:ring-color-input"
+            placeholder="Contame sobre tu negocio o tu proyecto..."
+            rows="5"
+            class="max-w-full px-4 py-2 border rounded-lg bg-Background-input text-Color-titulo border-Background-linea focus:outline-none focus:ring-2 focus:ring-color-input"
             required></textarea>
+
+          <!-- Anti-spam: campo oculto. Si un bot lo completa, Formspree descarta el envío. -->
+          <input
+            type="text"
+            name="_gotcha"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+
           <button
             type="submit"
-            class="flex justify-center gap-3 p-2 mt-8 text-xl transition-all border rounded-lg text-Color-parrafo border-Violet-background hover:bg-Background-icon"
-            >Enviar</button
+            class="flex justify-center gap-3 p-2 mt-2 text-xl transition-all border rounded-lg text-Color-titulo bg-Violet-background border-Violet-background hover:opacity-80"
+            >Enviar mensaje</button
           >
           <p
             id="form-status"
@@ -54,18 +166,14 @@
   </div>
 </section>
 
-<script>
-  const form = document.getElementById(
-    "contact-form",
-  ) as HTMLFormElement | null;
+<script is:inline define:vars={{ EMAIL }}>
+  const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
   if (form && status) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const button = form.querySelector(
-        "button[type='submit']",
-      ) as HTMLButtonElement;
+      const button = form.querySelector("button[type='submit']");
       const originalText = button.textContent;
       button.disabled = true;
       button.textContent = "Enviando...";
@@ -80,15 +188,14 @@
 
         if (response.ok) {
           status.className = "text-sm text-center mt-2 text-green-400";
-          status.textContent = "¡Mensaje enviado! Te responderé a la brevedad.";
+          status.textContent = "¡Mensaje enviado! Te respondo a la brevedad.";
           form.reset();
         } else {
           throw new Error("Error en el envío");
         }
       } catch (error) {
         status.className = "text-sm text-center mt-2 text-red-400";
-        status.textContent =
-          "Hubo un error. Escribime a bermudezdamian7@gmail.com";
+        status.textContent = "Hubo un error. Escribime directamente a " + EMAIL;
       } finally {
         button.disabled = false;
         button.textContent = originalText;
