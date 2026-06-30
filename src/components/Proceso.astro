@@ -1,0 +1,84 @@
+---
+const AGENDA = "https://calendly.com/bermudezdamian7/30min"; // ⬇️ poné acá tu link de agenda cuando lo tengas
+
+const pasos = [
+  {
+    numero: "01",
+    titulo: "Diagnóstico",
+    texto:
+      "Tenemos una charla corta sobre tu negocio. Detecto qué te está haciendo perder tiempo o clientes, y te digo con franqueza qué se puede automatizar y qué no.",
+    entrega: "Salís con un plan claro, sin tecnicismos.",
+  },
+  {
+    numero: "02",
+    titulo: "Implementación",
+    texto:
+      "Armo la solución a medida: el asistente con IA, las automatizaciones o la web. Vos seguís con lo tuyo mientras yo lo dejo funcionando y lo pruebo con casos reales.",
+    entrega: "Lo dejo andando y te enseño a usarlo.",
+  },
+  {
+    numero: "03",
+    titulo: "Soporte continuo",
+    texto:
+      "No te dejo solo. Con la mensualidad me ocupo de que todo siga funcionando, lo voy mejorando y respondo cuando necesitás un cambio.",
+    entrega: "Tranquilidad de que siempre va a andar.",
+  },
+];
+---
+
+<section id="proceso" class="mt-10 border-t border-Background-linea">
+  <div class="w-full mx-auto lg:w-[1000px] my-14">
+    <h2 class="mt-10 mb-2 text-lg text-Violet-text">Simple y sin vueltas</h2>
+    <h3 class="mb-4 text-4xl md:text-5xl text-Color-titulo">Cómo trabajo</h3>
+    <p class="max-w-2xl mb-12 text-lg text-Color-parrafo">
+      En tres pasos, sin que tengas que entender nada de tecnología.
+    </p>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {
+        pasos.map((p) => (
+          <article class="flex flex-col h-full p-6 transition-all duration-300 border border-Violet-background rounded-2xl hover:bg-Background-icon">
+            <span class="mb-4 text-5xl font-bold text-Violet-text/40">
+              {p.numero}
+            </span>
+            <h4 class="mb-3 text-2xl font-semibold text-Color-titulo">
+              {p.titulo}
+            </h4>
+            <p class="mb-5 text-sm leading-relaxed text-Color-parrafo">
+              {p.texto}
+            </p>
+            <div class="flex items-center gap-2 pt-4 mt-auto border-t border-Background-linea">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a476ff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="shrink-0"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              <span class="text-sm font-medium text-Color-titulo">
+                {p.entrega}
+              </span>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="flex justify-center mt-12">
+      <a
+        href={AGENDA}
+        target="_blank"
+        class="px-8 py-3 text-lg transition-all duration-300 border text-Color-titulo bg-Violet-background border-Violet-background rounded-xl hover:opacity-80"
+      >
+        Empecemos por el diagnóstico
+      </a>
+    </div>
+  </div>
+</section>

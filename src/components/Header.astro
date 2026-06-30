@@ -4,129 +4,140 @@ import Logo from "../assets/Logo-DB.png";
 ---
 
 <header
-    class="w-full left-1/2 transform -translate-x-1/2 max-w-screen-xl fixed top-0 z-50 bg-Background-body"
+  class="fixed top-0 z-50 w-full max-w-screen-xl transform -translate-x-1/2 left-1/2 bg-Background-body"
 >
-    <div class="flex justify-between m-auto gap-10 h-30 p-6">
-        <div>
-            <a href="#inicio">
-                <Image
-                    class="w-[250px] h-[100px] object-cover"
-                    src={Logo}
-                    alt="Logo Damián Bermúdez"
-                />
-            </a>
-        </div>
-
-        <button
-            id="menuButton"
-            class="relative w-12 h-12 flex justify-center items-center rounded-full transition-all duration-500 m-auto px-10 md:hidden"
-        >
-            <div
-                id="menuIcon"
-                class="relative w-8 h-8 flex flex-col justify-between items-center"
-            >
-                <span
-                    class="w-8 h-1 bg-white transition-all duration-500 origin-center"
-                ></span>
-                <span
-                    class="w-8 h-1 bg-white transition-all duration-500 origin-center"
-                ></span>
-                <span
-                    class="w-8 h-1 bg-white transition-all duration-500 origin-center"
-                ></span>
-            </div>
-        </button>
-
-        <nav
-            id="menu"
-            class="text-white hidden w-full h-screen md:h-auto absolute top-32 left-1/2 transform -translate-x-1/2 bg-Background-body md:flex md: md:my-auto md:static md:w-auto md:bg-transparent md:translate-x-0 z-10 border-white"
-        >
-            <li
-                class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
-            >
-                <a href="#inicio" data-section="inicio">Inicio</a>
-            </li>
-            <li
-                class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
-            >
-                <a href="#acerca" data-section="acerca">Acerca</a>
-            </li>
-            <li
-                class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
-            >
-                <a href="#proyectos" data-section="proyectos">Proyectos</a>
-            </li>
-            <li
-                class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
-            >
-                <a href="#contacto" data-section="contacto">Contacto</a>
-            </li>
-        </nav>
+  <div class="flex justify-between gap-10 p-6 m-auto h-30">
+    <div>
+      <a href="#inicio">
+        <Image
+          class="w-[250px] h-[100px] object-cover"
+          src={Logo}
+          alt="Logo Damián Bermúdez"
+        />
+      </a>
     </div>
+
+    <button
+      id="menuButton"
+      class="relative flex items-center justify-center w-12 h-12 px-10 m-auto transition-all duration-500 rounded-full md:hidden"
+    >
+      <div
+        id="menuIcon"
+        class="relative flex flex-col items-center justify-between w-8 h-8"
+      >
+        <span class="w-8 h-1 transition-all duration-500 origin-center bg-white"
+        ></span>
+        <span class="w-8 h-1 transition-all duration-500 origin-center bg-white"
+        ></span>
+        <span class="w-8 h-1 transition-all duration-500 origin-center bg-white"
+        ></span>
+      </div>
+    </button>
+
+    <nav
+      id="menu"
+      class="absolute z-10 hidden w-full h-screen text-white transform -translate-x-1/2 border-white md:h-auto top-32 left-1/2 bg-Background-body md:flex md: md:my-auto md:static md:w-auto md:bg-transparent md:translate-x-0"
+    >
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#inicio" data-section="inicio">Inicio</a>
+      </li>
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#servicios" data-section="servicios">Servicios</a>
+      </li>
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#problema" data-section="problema">Problema</a>
+      </li>
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#proceso" data-section="proceso">Proceso</a>
+      </li>
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#precios" data-section="precios">Precios</a>
+      </li>
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#proyectos" data-section="proyectos">Proyectos</a>
+      </li>
+      <li
+        class="list-none text-xl m-5 hover:text-Violet-text transition duration-300 ease-in-out ..."
+      >
+        <a href="#contacto" data-section="contacto">Contacto</a>
+      </li>
+    </nav>
+  </div>
 </header>
 
 <!-- Script que se ejecuta solo en el cliente -->
 <script client:load>
-    document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll("section");
-        const links = document.querySelectorAll("a[href^='#']");
-        const menuButton = document.getElementById("menuButton");
-        const menuIcon = document.getElementById("menuIcon");
-        const menu = document.getElementById("menu");
-        const bars = menuIcon.querySelectorAll("span");
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const links = document.querySelectorAll("a[href^='#']");
+    const menuButton = document.getElementById("menuButton");
+    const menuIcon = document.getElementById("menuIcon");
+    const menu = document.getElementById("menu");
+    const bars = menuIcon.querySelectorAll("span");
 
-        // Función para alternar el menú (abrir/cerrar)
-        function toggleMenu() {
-            const isOpen = menu.classList.toggle("hidden"); // Alterna la visibilidad
+    // Función para alternar el menú (abrir/cerrar)
+    function toggleMenu() {
+      const isOpen = menu.classList.toggle("hidden"); // Alterna la visibilidad
 
-            bars[0].classList.toggle("rotate-45", !isOpen);
-            bars[0].classList.toggle("translate-y-4", !isOpen);
-            bars[1].classList.toggle("opacity-0", !isOpen);
-            bars[2].classList.toggle("-rotate-45", !isOpen);
-            bars[2].classList.toggle("-translate-y-3", !isOpen);
+      bars[0].classList.toggle("rotate-45", !isOpen);
+      bars[0].classList.toggle("translate-y-4", !isOpen);
+      bars[1].classList.toggle("opacity-0", !isOpen);
+      bars[2].classList.toggle("-rotate-45", !isOpen);
+      bars[2].classList.toggle("-translate-y-3", !isOpen);
+    }
+
+    // Evento de clic en el botón del menú
+    menuButton.addEventListener("click", toggleMenu);
+
+    // Evento de clic en los enlaces del menú
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
         }
 
-        // Evento de clic en el botón del menú
-        menuButton.addEventListener("click", toggleMenu);
-
-        // Evento de clic en los enlaces del menú
-        links.forEach((link) => {
-            link.addEventListener("click", (e) => {
-                e.preventDefault();
-
-                const targetId = link.getAttribute("href").substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: "smooth" });
-                }
-
-                // Cerrar el menú después de hacer clic en un enlace
-                if (!menu.classList.contains("hidden")) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Resaltar enlaces de navegación al hacer scroll
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const activeSection = entry.target.id;
-
-                        links.forEach((link) => {
-                            const isActive =
-                                link.dataset.section === activeSection;
-                            link.classList.toggle("text-Violet-text", isActive);
-                            link.classList.toggle("font-bold", isActive);
-                        });
-                    }
-                });
-            },
-            { threshold: 0.9 },
-        );
-
-        sections.forEach((section) => observer.observe(section));
+        // Cerrar el menú después de hacer clic en un enlace
+        if (!menu.classList.contains("hidden")) {
+          toggleMenu();
+        }
+      });
     });
+
+    // Resaltar enlaces de navegación al hacer scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const activeSection = entry.target.id;
+
+            links.forEach((link) => {
+              const isActive = link.dataset.section === activeSection;
+              link.classList.toggle("text-Violet-text", isActive);
+              link.classList.toggle("font-bold", isActive);
+            });
+          }
+        });
+      },
+      { threshold: 0.9 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  });
 </script>

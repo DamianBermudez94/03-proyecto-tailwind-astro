@@ -1,0 +1,77 @@
+---
+const dolores = [
+  {
+    icono: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z",
+    titulo: "Se te acumulan los mensajes",
+    texto:
+      "Llegan consultas por WhatsApp e Instagram y no das abasto para responder todas a tiempo.",
+  },
+  {
+    icono: "M12 6v6l4 2M12 22A10 10 0 1 0 12 2a10 10 0 0 0 0 20z",
+    titulo: "Perdés ventas fuera de horario",
+    texto:
+      "El cliente escribe a la noche o el finde, no le contestás al toque, y termina comprando en otro lado.",
+  },
+  {
+    icono: "M3 3v18h18M9 17V9m4 8V5m4 12v-6",
+    titulo: "Contestás lo mismo 20 veces",
+    texto:
+      "Precios, horarios, ubicación, disponibilidad… las mismas preguntas todo el día, a mano.",
+  },
+  {
+    icono:
+      "M12 2v4m0 12v4m10-10h-4M6 12H2m15.07-5.07-2.83 2.83M8.76 8.76 5.93 5.93m12.14 12.14-2.83-2.83M8.76 15.24l-2.83 2.83",
+    titulo: "El trabajo administrativo te come el día",
+    texto:
+      "Cargar datos, mandar recordatorios, armar presupuestos… horas que no le dedicás a lo importante.",
+  },
+];
+---
+
+<section id="problema" class="mt-10 border-t border-Background-linea">
+  <div class="w-full mx-auto lg:w-[1000px] my-14">
+    <h2 class="mt-10 mb-2 text-lg text-Violet-text">El problema</h2>
+    <h3 class="mb-4 text-4xl md:text-5xl text-Color-titulo">¿Te pasa esto?</h3>
+    <p class="max-w-2xl mb-12 text-lg text-Color-parrafo">
+      Si alguna de estas te suena familiar, hay una buena noticia: casi todo
+      esto se puede resolver automatizando.
+    </p>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {
+        dolores.map((d) => (
+          <div class="flex items-start gap-4 p-6 transition-all duration-300 border border-Violet-background rounded-2xl hover:bg-Background-icon">
+            <div class="flex items-center justify-center w-12 h-12 shrink-0 rounded-xl bg-Background-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#a476ff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d={d.icono} />
+              </svg>
+            </div>
+            <div>
+              <h4 class="mb-1 text-xl font-semibold text-Color-titulo">
+                {d.titulo}
+              </h4>
+              <p class="text-sm leading-relaxed text-Color-parrafo">
+                {d.texto}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="max-w-2xl mx-auto mt-12 text-lg text-center text-Color-titulo">
+      Imaginá que todo eso pasa solo, mientras vos te dedicás a tu negocio.
+      <span class="text-Violet-text">De eso me encargo yo.</span>
+    </p>
+  </div>
+</section>
