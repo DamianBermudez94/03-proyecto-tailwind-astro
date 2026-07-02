@@ -1,51 +1,95 @@
 ---
 import "@fontsource-variable/onest";
 import "../styles/global.css";
+
+const SITE = "https://damianbermudezdev.net";
+const TITLE = "Damián Bermúdez | Webs y Automatización con IA para PyMEs";
+const DESCRIPTION =
+  "Ayudo a comercios y PyMEs de Lobos y Buenos Aires a vender más y trabajar menos: webs, automatización de tareas y asistentes con IA. Diagnóstico gratis.";
+const IMAGE = `${SITE}/svg/captura-porfolio.jpg`;
+
+// Datos estructurados para SEO local (Google los usa para entender tu negocio)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Damián Bermúdez — Automatización e IA para PyMEs",
+  description: DESCRIPTION,
+  url: SITE,
+  image: IMAGE,
+  email: "bermudezdamian7@gmail.com",
+  telephone: "+5492227508824",
+  priceRange: "$$",
+  areaServed: [
+    { "@type": "City", name: "Lobos" },
+    { "@type": "AdministrativeArea", name: "Buenos Aires" },
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lobos",
+    addressRegion: "Buenos Aires",
+    addressCountry: "AR",
+  },
+  founder: {
+    "@type": "Person",
+    name: "Damián Bermúdez",
+    jobTitle: "Desarrollador web y especialista en automatización con IA",
+  },
+  knowsAbout: [
+    "Desarrollo web",
+    "Automatización de procesos",
+    "Agentes de IA",
+    "Chatbots para WhatsApp",
+    "n8n",
+  ],
+  sameAs: [
+    "https://github.com/DamianBermudez94",
+    "https://www.linkedin.com/in/damianbermudezdeveloper/",
+  ],
+};
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
-    <meta
-      http-equiv="cache-control"
-      content="no-cache, no-store, must-revalidate"
-    />
-    <meta http-equiv="expires" content="0" />
-    <meta name="color-scheme" content="dark light" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="description"
-      content="Portfolio web de Damián Bermúdez, desarrollador web. Conoce mis proyectos y servicios."
-    />
+    <meta name="color-scheme" content="dark light" />
+
+    <title>{TITLE}</title>
+    <meta name="description" content={DESCRIPTION} />
     <meta
       name="keywords"
-      content="Damián Bermúdez, portfolio, desarrollo web, programación, proyectos web"
+      content="automatización de procesos, agentes de IA, chatbot WhatsApp, desarrollo web PyMEs, automatización para negocios, n8n, Lobos, Buenos Aires"
     />
-    <meta property="og:title" content="Damián Bermúdez - Portfolio Web" />
-    <meta
-      property="og:description"
-      content="Desarrollador web especializado en tecnologías modernas. ¡Mirá mi trabajo!"
-    />
-    <meta
-      property="og:image"
-      content="https://damianbermudezdev.net/svg/captura-porfolio.jpg"
-    />
-    <meta
-      property="og:image:alt"
-      content="Portfolio de Damián Bermúdez, desarrollador y diseñador web"
-    />
-    <meta property="og:url" content="https://damianbermudezdev.net/" />
-    <meta property="og:locale" content="es_AR" />
-    <meta property="og:type" content="website" />
     <meta name="author" content="Damián Bermúdez" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#5a2ca0" />
-    <link rel="canonical" href="https://damianbermudezdev.net/" />
+    <link rel="canonical" href={`${SITE}/`} />
     <link rel="icon" type="image/png" href="/svg/icons-favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={TITLE} />
+    <meta property="og:description" content={DESCRIPTION} />
+    <meta property="og:image" content={IMAGE} />
+    <meta
+      property="og:image:alt"
+      content="Damián Bermúdez — automatización, IA y desarrollo web para PyMEs"
+    />
+    <meta property="og:url" content={`${SITE}/`} />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={TITLE} />
+    <meta name="twitter:description" content={DESCRIPTION} />
+    <meta name="twitter:image" content={IMAGE} />
+
     <meta name="generator" content={Astro.generator} />
-    <title>Damián Bermúdez | Desarrollador & Diseñador Web</title>
+
+    <!-- Datos estructurados (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />

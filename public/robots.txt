@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://damianbermudezdev.net/sitemap-index.xml
