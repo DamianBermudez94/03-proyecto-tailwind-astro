@@ -1,57 +1,67 @@
 ---
+// { label: cómo se muestra, icon: nombre del archivo en /public/svg }
+// Para agregar una tecnología: dejá su SVG en public/svg/ y sumá una línea acá.
 const technologies = [
-  "astro",
-  "react",
-  "tailwindcss",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "mongoDB",  
-  "mysql",
-  "github",
-  "wordpress",
-  "postman",
-  "firebase",
-  "figma",
-  "vitejs"
+  { label: "Astro", icon: "astro" },
+  { label: "React", icon: "react" },
+  { label: "TailwindCSS", icon: "tailwindcss" },
+  { label: "Node.js", icon: "nodejs" },
+  { label: "JavaScript", icon: "javaScript" },
+  { label: "HTML5", icon: "HTML5" },
+  { label: "CSS3", icon: "CSS3" },
+  { label: "MongoDB", icon: "mongoDB" },
+  { label: "Git", icon: "git" },
+  { label: "GitHub", icon: "github" },
+  { label: "Figma", icon: "figma" },
+  { label: "n8n", icon: "n8n" },
+  { label: "OpenAI", icon: "openai" },
 ];
 ---
 
-<div class="relative overflow-x-hidden py-8 mt-20">
-  <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-Background-body to-transparent z-20" ></div>
-  <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-Background-body  to-transparent z-20"></div>
+<div class="relative py-8 mt-20 overflow-x-hidden">
+  <div
+    class="absolute inset-y-0 left-0 z-20 w-32 pointer-events-none bg-gradient-to-r from-Background-body to-transparent"
+  >
+  </div>
+  <div
+    class="absolute inset-y-0 right-0 z-20 w-32 pointer-events-none bg-gradient-to-l from-Background-body to-transparent"
+  >
+  </div>
 
-  <div class="flex animate-scroll hover:animate-paused gap-12 md:gap-20 w-max">
-    {[...technologies, ...technologies, ...technologies].map((tech) => (
-      <div class="flex items-center gap-2 group transition-all duration-500">
-        <img
-          src={`/svg/${tech}.svg`}
-          alt={tech}
-          class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
-          width="50"
-          height="50"
-          loading="lazy"
-        />
-        <span class="text-lg font-medium text-Color-parrafo">
-          {tech.charAt(0).toUpperCase() + tech.slice(1)}
-        </span>
-      </div>
-    ))}
+  <div class="flex gap-12 animate-scroll hover:animate-paused md:gap-20 w-max">
+    {
+      [...technologies, ...technologies, ...technologies].map((tech) => (
+        <div class="flex items-center gap-2 transition-all duration-500 group">
+          <img
+            src={`/svg/${tech.icon}.svg`}
+            alt={tech.label}
+            class="object-contain w-auto transition-transform h-7 group-hover:scale-110 opacity-60"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <span class="text-lg font-medium text-Color-parrafo">
+            {tech.label}
+          </span>
+        </div>
+      ))
+    }
   </div>
 </div>
 
 <style is:global>
-
   @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
   .animate-scroll {
     animation: scroll 60s linear infinite;
   }
-  
+
   @media (min-width: 768px) {
     .animate-scroll {
       animation-duration: 50s;
